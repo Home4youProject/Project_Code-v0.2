@@ -1,0 +1,44 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="content-section">
+
+
+   <form method="POST" action="">
+   	{{ form.hidden_tag() }}
+   	 <fieldset class="form-group">
+     <table align='center' border='2' width='80%'>
+                        <tr>
+                        	<th class="text-secondary">Id Σπιτιού</th>
+                            <th class="text-secondary">Όνομα Σπιτιού</th>
+                            <th class="text-secondary">Τιμή Σπιτιού</th>
+
+
+                        </tr>
+                        {% for searched_house in searched_houses %}
+
+                                <tr>
+                                    <th class="text-secondary">{{searched_house.id}}</th>
+                                    <th class="text-secondary">{{searched_house.house_name}}</th>
+                                    <th class="text-secondary">{{searched_house.price}}</th>
+
+
+
+                                </tr>
+
+                        {% endfor %}
+     </table>
+
+                <div class="form-group">
+                    {{ form.house_id.label(class="form-control-label") }}
+
+
+                    {{ form.house_id(class="form-control form-control-lg") }}
+
+                </div>
+            </fieldset>
+     <div class="form-group">
+                {{ form.submit2(class="btn btn-outline-info") }}
+     </div>
+    </form>
+   </div>
+{% endblock content %}

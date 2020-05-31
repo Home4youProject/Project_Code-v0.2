@@ -1,0 +1,50 @@
+{% extends "layout.html" %}
+{% block content %}
+    <div class="content-section">
+
+
+        <form method="POST" action="">
+            {{ form.hidden_tag() }}
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-4">Επιλέξτε το id του αιτήματος που θέλετε να επεξεργαστείτε :</legend>
+                <div class="media">
+
+                    <div class="media-body">
+                     <table align='center' border='2' width='80%'>
+                        <tr>
+                            <th class="text-secondary">Id Σπιτιού</th>
+                            <th class="text-secondary">Id Αιτήματος</th>
+
+
+                        </tr>
+                        {% for request in requests %}
+
+                                <tr>
+
+                                    <th class="text-secondary">{{request.req_house}}</th>
+                                    <th class="text-secondary">{{request.id}}</th>
+
+
+                                </tr>
+
+                        {% endfor %}
+                     </table>
+                    </div>
+                  </div>
+                  <br>
+                  <br>
+                <div class="form-group">
+                    {{ form.req_id.label(class="form-control-label") }}
+
+
+                    {{ form.req_id(class="form-control form-control-lg") }}
+
+                </div>
+            </fieldset>
+            <div class="form-group">
+                {{ form.submit3(class="btn btn-outline-info") }}
+            </div>
+        </form>
+    </div>
+
+{% endblock content %}

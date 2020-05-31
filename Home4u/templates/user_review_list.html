@@ -1,0 +1,50 @@
+{% extends "layout.html" %}
+{% block content %}
+    <div class="content-section">
+      
+        
+        <form method="POST" action="">
+            {{ form.hidden_tag() }}
+            <fieldset class="form-group">
+                <legend class="border-bottom mb-4">Επιλέξτε το id του σπιτιού που θέλετε να αξιολογήσετε :</legend>
+                <div class="media">
+        
+                    <div class="media-body">
+                     <table align='center' border='2' width='80%'>
+                        <tr>
+                            <th class="text-secondary">Όνομα Σπιτιού</th>
+                            <th class="text-secondary">Id Σπιτιού</th>
+
+
+                        </tr>
+                        {% for home in homes %}
+                            
+                                <tr>
+                                    
+                                    <th class="text-secondary">{{home.house_name}}</th>
+                                    <th class="text-secondary">{{home.id}}</th>
+                                     
+                                 
+                                </tr>
+                            
+                        {% endfor %}
+                     </table>
+                    </div>
+                  </div>
+                  <br>
+                  <br>
+                <div class="form-group">
+                    {{ form.recipient.label(class="form-control-label") }}
+
+
+                    {{ form.recipient(class="form-control form-control-lg") }}
+
+                </div>
+            </fieldset>
+            <div class="form-group">
+                {{ form.submit2(class="btn btn-outline-info") }}
+            </div>
+        </form>
+    </div>
+    
+{% endblock content %}
